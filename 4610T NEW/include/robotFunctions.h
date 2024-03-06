@@ -1,4 +1,4 @@
 #include "vex.h"
 
 void cataSpin();
-void cataSpinFor(int amt);
+void cataSpin(int amt);

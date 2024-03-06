@@ -2,7 +2,7 @@
 
 int x=0;//largest angle cata can be at(degrees)
 int y=0;//smallest angle cata can be at(degrees)
-int z=0;//distance triball is from cata at launch(inches)
+int z=.5;//distance triball is from cata at launch(inches)
 
 void cataSpin(){
     while (true){
@@ -17,7 +17,7 @@ void cataSpin(){
     }   
 }
 
-void cataSpinFor(int amt){
+void cataSpin(int amt){
     int triballsFired = 0;
     while (triballsFired<amt){
         while(!(cataPos.angle()<x&&cataPos.angle()>y)) {
@@ -27,7 +27,7 @@ void cataSpinFor(int amt){
         cata.stop();
         if (cataDist.objectDistance(inches)<z){
             cata.spin(forward,100,pct);
-            while (cataDist.objectDistance(inches)<z){}
+            waitUntil(cataDist.objectDistance(inches)>z);
             triballsFired++;
         }    
     }

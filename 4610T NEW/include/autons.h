@@ -7,10 +7,10 @@ extern Drive chassis;
 
 void default_constants();
 
-void farSide();
+void farSideQuals();
 void closeSide();
 void skillsProgramming();
-void full_test();
+void farSideElims();
 void odom_test();
 void tank_odom_test();
 void holonomic_odom_test();

@@ -28,28 +28,29 @@ void odom_constants(){
   chassis.drive_max_voltage = 8;
   chassis.drive_settle_error = 3;
 }
-
-void farSide(){/*
-  chassis.set_heading(0);
-  thread distance(controllerScreen);
-  chassis.drive_distance();
+void hangtwo(){
+  hang.spinFor(2.75,sec);
+}
+void farSideQuals(){
+  chassis.drive_distance(50);
   chassis.turn_to_angle(90);
   intake.spin(reverse,100,pct);
-  chassis.drive_distance();
-  chassis.drive_distance();
-  chassis.turn_to_angle(180);
+  wait(.25,sec);
+  chassis.drive_distance(6.5);
+  chassis.turn_to_angle(-115);
   intake.spin(forward,100,pct);
-  chassis.drive_distance();
-  chassis.turn_to_angle();
-  chassis.drive_distance();
+  chassis.drive_distance(27);
+  chassis.turn_to_angle(20);
+  chassis.drive_distance(9);
   pistonL.set(true);
   chassis.turn_to_angle(90);
-  chassis.drive_distance();
-  chassis.drive_distance();
+  thread h(hangtwo);
+  chassis.drive_distance(16);
+  intake.spin(reverse,100,pct);
+  chassis.drive_distance(8.5);
+  chassis.drive_distance(-5);
   chassis.turn_to_angle(45);
-  chassis.drive_distance();
-  hang.spinFor(3,sec);
-*/
+  chassis.drive_distance(-35);
 }
 void pistl(){
   pistonL.set(true);
@@ -75,7 +76,9 @@ void skillsProgramming(){
   chassis.turn_to_angle(94);
   chassis.drive_distance(3);
   pistonL.set(true);
-  cataSpinFor(44);
+  cata.spin(forward,100,pct);
+  wait(30,sec);
+  cata.stop();
   pistonL.set(false);
   chassis.turn_to_angle(130);
   chassis.drive_distance(-40);
@@ -109,13 +112,29 @@ void skillsProgramming(){
 
 }
 
-void full_test(){
-  chassis.drive_distance(24);
-  chassis.turn_to_angle(-45);
-  chassis.drive_distance(-36);
-  chassis.turn_to_angle(-90);
-  chassis.drive_distance(24);
-  chassis.turn_to_angle(0);
+void farSideElims(){
+  chassis.drive_distance(50);
+  chassis.turn_to_angle(90);
+  intake.spin(reverse,100,pct);
+  wait(.25,sec);
+  chassis.drive_distance(6.5);
+  chassis.turn_to_angle(-115);
+  intake.spin(forward,100,pct);
+  chassis.drive_distance(27);
+  chassis.turn_to_angle(20);
+  chassis.drive_distance(9);
+  chassis.turn_to_angle(90);
+  pistonL.set(true);
+  chassis.drive_distance(16);
+  intake.spin(reverse,100,pct);
+  chassis.drive_distance(8.5);
+  pistonL.set(false);
+  chassis.drive_distance(-5);
+  intake.spin(forward,100,pct);
+  chassis.turn_to_angle(-72);
+  chassis.drive_distance(34);
+  chassis.turn_to_angle(90);
+  chassis.drive_distance(20);
 }
 
 void odom_test(){

@@ -21,9 +21,9 @@ inertial InertialA = inertial(PORT12);
 motor hangMotorA = motor(PORT18, ratio36_1, true);
 motor hangMotorB = motor(PORT19, ratio36_1, false);
 motor_group hang = motor_group(hangMotorA, hangMotorB);
-motor ratchet = motor(PORT17, ratio18_1, false);
 rotation cataPos = rotation(PORT15,true);
 distance cataDist = distance(PORT16);
+motor ratchet = motor(PORT17, ratio18_1, false);
 // VEXcode generated functions
 // define variable for remote controller enable/disable
 bool RemoteControlCodeEnabled = true;

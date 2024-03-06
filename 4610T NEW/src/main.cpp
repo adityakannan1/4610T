@@ -93,7 +93,7 @@ PORT3,     -PORT4,
 
 );
 
-int current_auton_selection = 3;
+int current_auton_selection = 4;
 bool auto_started = false;
 
 void pre_auton(void) {
@@ -105,16 +105,16 @@ void pre_auton(void) {
     Brain.Screen.clearScreen();            //brain screen for auton selection.
     switch(current_auton_selection){       //Tap the brain screen to cycle through autons.
       case 1:
-        Brain.Screen.printAt(50, 50, "Far Side");
+        Brain.Screen.printAt(50, 50, "Far Side Quals");
         break;
       case 2:
         Brain.Screen.printAt(50, 50, "Close Side");
         break;
       case 3:
-        Brain.Screen.printAt(50, 50, "Swing Test");
+        Brain.Screen.printAt(50, 50, "Programming Skills");
         break;
       case 4:
-        Brain.Screen.printAt(50, 50, "Full Test");
+        Brain.Screen.printAt(50, 50, "Far Side Elims");
         break;
       case 5:
         Brain.Screen.printAt(50, 50, "Odom Test");
@@ -140,7 +140,7 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){       
     case 1:         //Tap the screen to cycle through autons.
-      farSide();
+      farSideQuals();
       break;
     case 2:
       closeSide();
@@ -149,7 +149,7 @@ void autonomous(void) {
       skillsProgramming();
       break;
     case 4:
-      full_test();
+      farSideElims();
       break;
     case 5:
       odom_test();
@@ -210,9 +210,12 @@ void usercontrol(void) {
    //cata
 
   
-   thread c(cataSpin);
+   if (Controller1.ButtonA.pressing()) {
+     cata.spin(forward, 100, percent);
+   }else if (Controller1.ButtonX.pressing()){
+     cata.stop();
+   }
 
-  
   
 
 
@@ -228,9 +231,9 @@ void usercontrol(void) {
     hang.stop();
    }
    if(Controller1.ButtonLeft.pressing()){
-    ratchet.spin(reverse,100,pct);
+    ratchet.spin(forward,25,pct);
    }else if(Controller1.ButtonRight.pressing()){
-    ratchet.spinToPosition(0,deg);
+    ratchet.spin(reverse,25,pct);
    }else{
     ratchet.setStopping(hold);
     ratchet.stop();

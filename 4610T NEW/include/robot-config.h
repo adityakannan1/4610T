@@ -16,9 +16,9 @@ extern inertial InertialA;
 extern motor_group hang;
 extern motor hangMotorA;
 extern motor hangMotorB;
-extern motor ratchet;
 extern distance cataDist;
 extern rotation cataPos;
+extern motor ratchet;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  * 
